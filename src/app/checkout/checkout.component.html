@@ -1,0 +1,81 @@
+<div class="container">
+  <h2 style="text-align: center;"> <u>Check Out Order</u> </h2>
+  <div class="row">
+    <div class="col-lg-6">
+      <form [formGroup]="checkout" (ngSubmit)="checkoutcart(checkout.value)">
+      <strong>Name :*</strong><span *ngIf="checkout.controls.name.touched && checkout.controls.name.invalid" class="text-danger small">Please Enter Name</span>
+      <input type="text" name="name" formControlName="name" class="form-control"><br>
+      <b>Mobile No.* :</b><span *ngIf="checkout.controls.mobileno.touched && checkout.controls.mobileno.invalid" class="text-danger small">Please Enter Mobile No.</span>  <br>
+      <input type="text" name="mobileno" formControlName="mobileno" class="form-control"><br>
+      <b>Email :*</b><span *ngIf="checkout.controls.email.touched && checkout.controls.email.invalid" class="text-danger small">Please Enter Email</span>  <br>
+      <input type="email" name="email" formControlName="email" class="form-control"> <br>
+      <b>Address :*</b><span *ngIf="checkout.controls.address.touched && checkout.controls.address.invalid" class="text-danger small">Please Enter Address</span>  <br>
+      <textarea name="address" rows="05" formControlName="address" class="form-control" ></textarea> <br>
+      <b>City:*</b><span *ngIf="checkout.controls.city.touched && checkout.controls.city.invalid" class="text-danger small">Please Enter City</span>  <br>
+      <input type="text" name="city" formControlName="city" class="form-control"><br>
+      <b>Pin Code :*</b><span *ngIf="checkout.controls.pincode.touched && checkout.controls.pincode.invalid" class="text-danger small">Please Enter Pin Code</span>  <br>
+      <input type="number" name="pincode" formControlName="pincode" class="form-control" maxlength="6"> <hr>
+      <button type="submit" [disabled]="!checkout.valid">Order Now</button>
+    </form>
+    </div>
+
+    <div class="col-lg-6"><br>
+      <table class="table text-center">
+        <tr>
+          <th>Sr.No.</th>
+          <th>Title</th>
+          <th>Category</th>
+          <th>Price</th>
+          <th>Quantity</th>
+          <th>Total</th>
+          <th>Image</th>
+        </tr>
+        <tr *ngFor="let s of show; let i = index">
+          <td>{{i+1}}</td>
+          <td>{{s.title}}</td>
+          <td>{{s.category}}</td>
+          <td>{{s.price}}</td>
+          <td>{{s.quentity}}</td>
+          <td>{{s.price * s.quentity}}</td>
+          <td><img src="{{s.avatar}}" height="70px"></td>
+        </tr>
+           </table>
+           <div class="row row-pb-lg">
+            <div class="col-md-12">
+              <div class="total-wrap">
+                <div class="row">
+                  <!-- <div class="col-sm-8">
+                    <form action="#">
+                      <div class="row form-group">
+                        <div class="col-sm-9">
+                          <input type="text" name="quantity" class="form-control input-number" placeholder="Your Coupon Number...">
+                        </div>
+                        <div class="col-sm-3">
+                          <input type="submit" value="Apply Coupon" class="btn btn-primary">
+                        </div>
+                      </div>
+                    </form>
+                  </div> -->
+                  <!-- <div class="col-sm-12 text-center form-control"> -->
+                    <hr>
+
+                    <div class="total">
+                      <div class="sub">
+                        <p><span>Subtotal:</span>{{subtotal | currency:"INR"}} <span></span></p>
+                        <p><span>Delivery:</span>{{delivery | currency:"INR"}} <span></span></p>
+                        <p><span>Discount:</span>{{discount | currency:"INR"}} <span></span></p>
+                      </div>
+                      <div class="grand-total">
+                        <p><span><strong>Total:</strong></span>{{grandtotal | currency:"INR"}} <span></span></p>
+                      </div>
+
+                    </div>
+                    <!-- <button (click)="gocheckout()">Checkout</button> -->
+                  <!-- </div> -->
+                </div>
+              </div>
+            </div>
+          </div>
+    </div>
+  </div>
+</div>

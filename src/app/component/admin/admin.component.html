@@ -1,0 +1,20 @@
+<div class="container">
+<div class="row">
+  <div class="col-lg-3"></div>
+  <div class="col-lg-6">
+    <form [formGroup]="formdata" (ngSubmit)="login(formdata.value)">
+      <br>
+      <p class="text-center">LogIn</p>
+     <span>Username :</span>  <br>
+      <input type="text" name="username" class="form-control" formControlName="username"><br>
+      <span>Password :</span>  <br>
+      <input type="password" name="password" class="form-control" formControlName="password"><br>
+
+      <!-- <input type="submit" value="LogIn" class="form-control"> -->
+      <button class="btn  form-control"  >LogIn</button>
+    </form>
+
+  </div>
+
+</div>
+</div>

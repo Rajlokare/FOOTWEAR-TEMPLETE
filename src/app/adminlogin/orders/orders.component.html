@@ -1,0 +1,68 @@
+<h1></h1>
+<div class="container"><br>
+  <div class="row">
+
+    <div class="col-lg-2 bg-info">
+      <h5>Product Category</h5>
+
+      <br><br>
+
+      <!-- {{orders | json}} -->
+
+      <a style="color: black; font-weight: 500;" routerLink="/adminproducts">Products</a><br><br>
+      <a style="color: black; font-weight: 500;" routerLink="/adminproduct">Add Product</a><br><br>
+      <a style="color: black; font-weight: 500;" routerLink="/orders">Orders</a>
+    </div>
+    <div class="col-lg-9">
+      <h3 style="text-align: center;font-size: 40px; font-weight: 500;">Orders Details</h3>
+      <table class="table text-center">
+        <tr>
+          <th>Sr.No.</th>
+          <th>Name</th>
+          <th>Mobile No</th>
+          <th>Email</th>
+          <th>Address</th>
+          <th>City</th>
+          <th>Pin Code</th>
+          <!-- <th>Product Details</th> -->
+          <!-- <th>Product Title</th> -->
+          <!-- <th>Discription</th> -->
+          <!-- <th>Category</th>
+          <th>Price</th>
+          <th>Quantity</th>
+          <th>Total</th>
+          <th>Image</th> -->
+          <th>Status</th>
+          <th>Product Details</th>
+          <!-- <th colspan="3">Action</th> -->
+
+
+        </tr>
+        <tr *ngFor="let order of orders ; let i = index ">
+          <td>{{i + 1}}</td>
+          <td>{{order.name}}</td>
+          <td>{{order.mobileno}}</td>
+          <td>{{order.email}}</td>
+          <td>{{order.address}}</td>
+          <td>{{order.city}}</td>
+          <td>{{order.pincode}}</td>
+          <!-- <td>
+            <ul>
+              <li *ngFor="let p of order.product">{{p.title +" - \n "+ p.price}}</li>
+            </ul>
+          </td> -->
+          <!-- <td>{{order.product[i].title}}</td>
+          <td>{{order.product[i].category}}</td>
+          <td>{{order.product[i].price}}</td>
+          <td>{{order.product[i].quentity}}</td>
+          <td>{{order.product[i].price * order.product[i].quentity}}</td>
+          <td><img src="{{order.product[i].avatar}}" height="80px"></td> -->
+          <td>{{order.status}}</td>
+          <td><a class="btn text-dark btn-primary" routerLink="/orderdetails/{{order.id}}">Details</a></td>
+          <!-- <td colspan="2"><button class="" routerLink="/adminproduct/">Edit</button>
+           <td> <button class="" >Delete</button></td> -->
+        </tr>
+      </table>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,45 @@
+<h1></h1>
+<div class="container"><br>
+  <div class="row">
+    <div class="col-lg-1"></div>
+    <div class="col-lg-2 bg-info">
+      <h5>Product Category</h5>
+
+      <br><br>
+
+      <a style="color: black; font-weight: 500;" routerLink="/adminproducts">Products</a><br><br>
+      <a style="color: black; font-weight: 500;" routerLink="/adminproduct">Add Product</a><br><br>
+      <a style="color: black; font-weight: 500;" routerLink="/orders">Orders</a>
+    </div>
+    <div class="col-lg-8" *ngIf="formdata">
+      <h3 style="text-align:center;font-size:40px; font-weight:500;">Add Products</h3>
+      <form [formGroup]="formdata" (ngSubmit)="save(formdata.value)">
+        Product Title : <br><br>
+        <input class="form-control" type="text" name="producttitle" formControlName="title" ><br>
+
+        Product Discription : <br><br>
+        <textarea class="form-control" rows="5" name="productdiscription" formControlName="discription" ></textarea>
+        <br>
+        Product Category : <br>
+        <select name="productcategory" formControlName="category" class="form-control">
+          <option value="Men's Clothing">Men's Clothing	</option>
+          <option value="Jewelery">Jewelery</option>
+          <option value="Electronics">Electronics	</option>
+          <option value="Women's Clothing">Women's Clothing	</option>
+        </select><br>
+
+        Product Price : <br><br>
+        <input class="form-control" type="text" name="productprice" formControlName="price" >
+
+        <br>
+        <!-- Product Image : <br><br>
+        <input type="file"  name="productimage" formControlName="productimage"> -->
+        Product MRP :
+        <input class="form-control" type="text" name="productmrp" formControlName="mrp">
+        <hr>
+        <button type="submit" class="btn form-control">SAVE</button>
+      </form>
+    </div>
+  </div>
+</div>
+

@@ -1,0 +1,93 @@
+<h1></h1>
+<div class="container"><br>
+  <div class="row">
+
+    <div class="col-lg-2 bg-info">
+      <h5>Product Category</h5>
+
+      <br><br>
+
+      <!-- {{orders | json}} -->
+
+      <a style="color: black; font-weight: 500;" routerLink="/adminproducts">Products</a><br><br>
+      <a style="color: black; font-weight: 500;" routerLink="/adminproduct">Add Product</a><br><br>
+      <a style="color: black; font-weight: 500;" routerLink="/orders">Orders</a>
+    </div>
+    <div class="col-lg-10">
+      <h3 style="text-align:center; font-size: 40px; font-weight: 500;">Order Details</h3> <hr>
+
+     <div class="container">
+      <span>Customer Details :</span><br><br>
+      <div class="row">
+        <div class="col-lg-3">
+          <label>Customer Name :</label>
+        </div>
+        <div class="col-lg-3">
+          <label>{{orders.name}} </label>
+        </div>
+        <div class="col-lg-3">
+          <label>Customer Email :</label>
+        </div>
+        <div class="col-lg-3">
+          <label>{{orders.email}} </label>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-lg-3">
+          <label>Customer Mobile No :</label>
+        </div>
+        <div class="col-lg-3">
+          <label>{{orders.mobileno}} </label>
+        </div>
+        <div class="col-lg-3">
+          <label>Customer Address :</label>
+        </div>
+        <div class="col-lg-3">
+          <label>{{orders.address}} </label>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-lg-3">
+          <label>Customer City :</label>
+        </div>
+        <div class="col-lg-3">
+          <label>{{orders.city}} </label>
+        </div>
+        <div class="col-lg-3">
+          <label>Order Status :</label>
+        </div>
+        <div class="col-lg-3">
+          <label>{{orders.status}} </label>
+        </div>
+      </div> <hr>
+      <span>Products Details :</span>
+     </div>
+
+      <table class="table text-center">
+        <tr>
+          <th>Sr.No.</th>
+          <th>Product Title</th>
+
+          <th>Category</th>
+          <th>Price</th>
+          <th>Quantity</th>
+          <th>Total</th>
+          <th>Image</th>
+        </tr>
+        <tr *ngFor="let order of orders.product; let i = index ">
+          <td>{{i + 1}}</td>
+          <td>{{order.title}}</td>
+
+          <td>{{order.category}}</td>
+          <td>{{order.price}}</td>
+          <td>{{order.quentity}}</td>
+          <td>{{order.price * order.quentity}}</td>
+          <td><img src="{{order.avatar}}" height="80px"></td>
+
+        </tr>
+      </table>
+    </div>
+  </div>
+</div>
